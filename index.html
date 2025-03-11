@@ -19,11 +19,13 @@
 
   <div class="container">
 
-    <img alt="profile picture" src="./assets/images/avatar-jessica.jpeg">
-    <h1>Jessica Randall</h1>
-    <p class="green">London, United Kingdom</p>
-    <p style="margin-bottom: 25px;">"Front-end developer and avid reader."</p>
-
+    <section class="profile">
+      <img alt="profile picture" src="./assets/images/avatar-jessica.jpeg">
+      <h1>Jessica Randall</h1>
+      <p class="green">London, United Kingdom</p>
+      <p style="margin-bottom: 25px;">"Front-end developer and avid reader."</p>
+    </section>
+      
     <button>GitHub</button>
     <button>Frontend Mentor</button>
     <button>LinkedIn</button>
@@ -36,5 +38,44 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Joaco</a>.
   </div>
+
+  <script type="module">
+    import { animate, scroll } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm"
+    const container = document.querySelector(".container")
+    const profile = document.querySelector(".profile")
+    const buttons = document.querySelectorAll("button")
+    let delayButtons = 0.8
+
+    animate(container, {y: [-50, 0]}, {ease: "easeOut", duration: .4})
+    animate(profile, {y: [-100, 0], opacity: [0,1]}, {ease: "easeOut", duration: .4, delay: .4})
+    buttons.forEach(button => {
+      animate(button, {y: [-50, 0], opacity:[0,1]}, {ease: "easeOut", duration: .2, delay: delayButtons})
+      delayButtons += 0.2
+
+      button.addEventListener("mouseenter", handleEvent);
+      button.addEventListener("mouseleave", handleEvent);
+      button.addEventListener("mousedown", handleEvent);
+      button.addEventListener("mouseup", handleEvent);
+
+      function handleEvent(event) {
+        switch (event.type) {
+          case "mouseenter":
+            animate(button, { scale: 1.2, backgroundColor: "hsl(75, 94%, 57%)", color: "hsl(0, 0%, 8%)" }, { duration: 0.3 });
+            break;
+          case "mouseleave":
+            animate(button, { scale: 1, backgroundColor: "", color: "" }, { duration: 0.3 });
+            break;
+          case "mousedown":
+            animate(button, { scale: 1.1 }, { duration: 0.1 });
+            break;
+          case "mouseup":
+            animate(button, { scale: 1.2 }, { duration: 0.1 });
+            break;
+        }
+      }
+    })
+
+  </script>
+
 </body>
 </html>

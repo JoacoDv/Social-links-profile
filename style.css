@@ -1,5 +1,5 @@
 
-.inter-<uniquifier> {
+.inter-regular {
     font-family: "Inter", serif;
     font-optical-sizing: auto;
     font-weight: 500;
@@ -57,17 +57,8 @@ button {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-button:hover, button:active {
-    background-color: hsl(75, 94%, 57%);
-    color: hsl(0, 0%, 8%);
-    cursor: pointer;
-}
-
 
 h1 {
     font-size: 1.5rem;
     font-weight: 600;
 }
-
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
